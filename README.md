@@ -124,6 +124,19 @@ imagesLoadPromise.then(() => {
 });
 ```
 
+#### Dom.scrollToElement( selector, {duration = 500, offset = 0, callback = null} )
+
+This method will scroll to the given element's positions minus offset in the given duration (in milliseconds).
+A callback can be provided that will trigger once the animation has finished.
+
+```js
+import {Dom} from 'lin3s-front-foundation';
+
+const callback = () => console.log('Scroll to element done!');
+
+Dom.scrollToElement('.some-selector', {duration: 2000, offset: 10, callback});
+```
+
 ### Dom - Utilities / Helpers
 
 #### Dom.isDomNodeDescendantOfDomNode( needleDomNode, mainDomNode )
