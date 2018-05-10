@@ -32,6 +32,7 @@
     @param radio_validate                           int=0
     @param radio_validation_pattern                 string=null
     @param radio_validation_type                    string=null
+    @param radio_group_id                           string=null
 
 #}
 
@@ -64,13 +65,15 @@
 
     {% if radio_validate|default(0) %}
         {% set required = radio_required|default(0) ? 'required' %}
+        {% set radio_group_name = radio_group_name|default(radio_group_id|default) ? 'name=' ~ radio_group_name|default(radio_group_id|default) %}
+        {% set radio_group_id = radio_group_id|default ? 'id=' ~ radio_group_id %}
 
-        <input class="form-group-radio__hidden" type="hidden" {{ required }}
+        <input class="form-group-radio__hidden" type="hidden" {{ radio_group_name }} {{ radio_group_id }} {{ required }}
                 {% if radio_validate|default(0) %} data-validate
             {% if radio_validation_pattern|default %}
                 data-validate-pattern="{{ radio_validation_pattern }}"
             {% elseif radio_validation_type|default %}
-                data-validate-{{ radio_validation_type }}
+                data-validate="{{ radio_validation_type }}"
             {% endif %}
                 {% endif %}/>
     {% endif %}

@@ -16,18 +16,16 @@
     @param radio_modifiers          string=null
     @param radio_checked            int=0
     @param radio_value              string=null
-    @param radio_id                 string=null
     @param radio_name               string=null
     @param radio_content            html|raw*
 #}
 
 {% set class = 'class="form-radio js-form-radio ' ~ radio_class_name|default ~ ' ' ~ radio_modifiers|default ~ '"' %}
-{% set id = radio_id|default ? 'id=' ~ radio_id %}
-{% set name = radio_name|default(radio_id|default) ? 'name=' ~ radio_name|default(radio_id|default) %}
+{% set name = radio_name|default ? 'name=' ~ radio_name %}
 {% set checked = radio_checked|default(0) ? 'checked' %}
 {% set value = radio_value|default ? 'value="' ~ radio_value ~ '"' %}
 
 <label {{ class|raw }} tabindex="0">
-    <input type="radio" class="form-radio__circle" {{ id }} {{ name }} {{ value|raw }} {{ checked }}/>
+    <input type="radio" class="form-radio__circle" {{ name }} {{ value|raw }} {{ checked }}/>
     <span class="form-radio__content">{{ radio_content|raw }}</span>
 </label>

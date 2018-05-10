@@ -145,14 +145,17 @@
                         <div id="components-radio" class="section__element">
                             <h4 class="section__title">2.3.2 - Radio</h4>
                             {% include '@lin3s_front_foundation/components/form_group_radio.html.twig' with {
-                                radio_id: 'genre',
-                                radio_label_title: 'Genre',
+                                radio_id: 'gender',
+                                radio_label_title: 'Gender',
+                                radio_group_id: 'gender_group',
+                                radio_validate: 1,
+                                radio_validation_type: 'any',
                                 radio_radios: [{
                                     radio_content: 'Male',
-                                    radio_value: 0
+                                    radio_value: 'male',
                                 }, {
                                     radio_content: 'Female',
-                                    radio_value: 1
+                                    radio_value: 'female'
                                 }]
                             } %}
                         </div>
