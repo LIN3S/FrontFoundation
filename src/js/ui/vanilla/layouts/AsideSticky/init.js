@@ -9,13 +9,18 @@
  * @author Mikel Tuesta <mikeltuesta@gmail.com>
  */
 
-import {onDomReady} from 'lin3s-event-bus';
+import {onDomReady, onNodeAdded} from 'lin3s-event-bus';
 import AsideSticky from './AsideSticky';
+
+const ASIDE_STICKY_SELECTOR = '.js-aside-sticky';
 
 const initStickies = () => {
   const stickies = document.querySelectorAll('.js-aside-sticky');
 
   Array.from(stickies).forEach(sticky => new AsideSticky(sticky));
+
+  onNodeAdded({selector: ASIDE_STICKY_SELECTOR}, nodeAddedEvent =>
+    nodeAddedEvent.nodes.forEach(sticky => new AsideSticky(sticky)));
 };
 
 onDomReady(initStickies, -1);

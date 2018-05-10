@@ -51,7 +51,7 @@ class AsideSticky {
   bindListeners() {
     onDomLoaded(this.handleWindowResize.bind(this));
     onWindowResized(this.handleWindowResize.bind(this));
-    onDomNodeUpdated(this.onStickyContentUpdated.bind(this));
+    onDomNodeUpdated(this.domNode, this.onStickyContentUpdated.bind(this));
   }
 
   onStickyContentUpdated() {
