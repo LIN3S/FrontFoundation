@@ -6,6 +6,8 @@ To get the diff for a specific change, go to https://github.com/LIN3S/FrontFound
 To get the diff between two versions, go to https://github.com/LIN3S/FrontFoundation/compare/v0.5.0...v0.6.0
 * 0.18.12
     * Radio group name added to reference it directly
+    * Fixed onDomNodeUpdated bug on the AsideSticky layout.
+    * Added onNodeAdded initialization to the AsideSticky layout implementation
 * 0.18.11
     * Fixed form group radio data validate
 * 0.18.10
