@@ -164,6 +164,23 @@ filtering it's targets by a selector.
 This method will dispatch a DOMElement native event. It's a native alternative to the jQuery's
 [`.trigger(eventName)`][10] method.
 
+#### Dom.scrollToElement( selector, {duration = 500, offset = 0, callback = null} )
+
+This method will help us scrolling to a document node's position. It allows defining a duration (default 500ms), an 
+offset (default 0) and a complete callback (default null).
+
+```js
+import {Dom} from 'lin3s-front-foundation';
+  
+const links = document.querySelectorAll('.menu__list .menu__link');
+  
+const handleClick = event => Dom.scrollToElement(event.target.hash, {duration: 250, offset: 10});
+  
+Array.from(links, link => {
+  link.addEventListener('click', handleClick, false);
+});
+```
+
 ---
 ### Cookies
 
