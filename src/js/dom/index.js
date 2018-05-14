@@ -19,6 +19,7 @@ import getDomNodeIndex from './getDomNodeIndex';
 import removeDomNodes from './removeDomNodes';
 import addSelectorFilteredEventListener from './addSelectorFilteredEventListener';
 import dispatchNativeEvent from './dispatchNativeEvent';
+import scrollToElement from './scrollToElement';
 
 export {
   loadScript,
@@ -29,5 +30,6 @@ export {
   getDomNodeIndex,
   removeDomNodes,
   addSelectorFilteredEventListener,
-  dispatchNativeEvent
+  dispatchNativeEvent,
+  scrollToElement
 };
