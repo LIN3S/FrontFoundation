@@ -73,7 +73,7 @@
             {% if radio_validation_pattern|default %}
                 data-validate-pattern="{{ radio_validation_pattern }}"
             {% elseif radio_validation_type|default %}
-                data-validate="{{ radio_validation_type }}"
+                data-validate-{{ radio_validation_type }}
             {% endif %}
                 {% endif %}/>
     {% endif %}
