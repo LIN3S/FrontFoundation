@@ -22,6 +22,10 @@ class FormGroup extends React.Component {
     placeholder: PropTypes.string,
     required: PropTypes.bool,
     type: PropTypes.string,
+    validationCustomErrorMessages: PropTypes.arrayOf(PropTypes.shape({
+      errorCode: PropTypes.string,
+      message: PropTypes.string,
+    })),
     validationEnabled: PropTypes.bool,
     validationPattern: PropTypes.string,
     validationMessageRequired: PropTypes.string,
@@ -31,10 +35,12 @@ class FormGroup extends React.Component {
 
   static defaultProps = {
     enabled: true,
-    onChanged: () => {},
+    onChanged: () => {
+    },
     placeholder: '',
     required: false,
     type: 'text',
+    validationCustomErrorMessages: null,
     validationEnabled: false,
     validationMessageRequired: '',
     validationMessageNotValid: '',
@@ -65,7 +71,8 @@ class FormGroup extends React.Component {
       validationPattern,
       validationMessageRequired,
       validationMessageNotValid,
-      value
+      validationCustomErrorMessages,
+      value,
     } = this.props;
 
     return enabled !== nextProps.enabled ||
@@ -77,6 +84,7 @@ class FormGroup extends React.Component {
       validationPattern !== nextProps.validationPattern ||
       validationMessageRequired !== nextProps.validationMessageRequired ||
       validationMessageNotValid !== nextProps.validationMessageNotValid ||
+      validationCustomErrorMessages !== nextProps.validationCustomErrorMessages ||
       value !== nextProps.value;
   }
 
@@ -91,8 +99,9 @@ class FormGroup extends React.Component {
       validationPattern,
       validationMessageRequired,
       validationMessageNotValid,
+      validationCustomErrorMessages,
       placeholder,
-      value
+      value,
     } = this.props;
 
     const
@@ -123,8 +132,15 @@ class FormGroup extends React.Component {
         type={type}
         value={value}/>
       <div className="form-group-input__errors">
-        <p className="form-error form-error--not-filled">{validationMessageRequired}</p>
-        <p className="form-error form-error--not-valid">{validationMessageNotValid}</p>
+        {validationMessageRequired &&
+        <p className="form-error form-error--not-filled">{validationMessageRequired}</p>}
+        {validationMessageNotValid &&
+        <p className="form-error form-error--not-valid">{validationMessageNotValid}</p>}
+        {validationCustomErrorMessages && validationCustomErrorMessages.map((customErrorMessage, index) =>
+          <p
+            className={`form-error form-error--${customErrorMessage.errorCode}`}
+            key={`validation-custom-error-${index}`}
+          >{customErrorMessage.message}</p>)}
       </div>
     </div>);
   }
