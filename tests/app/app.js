@@ -118,7 +118,7 @@ const testValidatory = () => {
     };
   init({
     formSelector: '#validatory-form',
-    formElementSelector: '#validatory-form input, #validatory-form select, #validatory-form textarea',
+    formElementSelector: 'input, select, textarea',
     onFormValidationStateChanged: formValidationStateChangedCallback,
     onFormElementValidationStateChanged: formElementValidationStateChangedCallback
   });
@@ -127,13 +127,13 @@ const testValidatory = () => {
   /*
   Event.validatory.initWithEvents({
     formSelector: '#validatory-form',
-    formElementSelector: '#validatory-form input, #validatory-form select, #validatory-form textarea'
+    formElementSelector: 'input, select, textarea'
   });
   */
 
   init({
     formSelector: '#validatory-form-react',
-    formElementSelector: '#validatory-form-react input, #validatory-form-react select, #validatory-form-react textarea'
+    formElementSelector: 'input, select, textarea'
   });
 
   onFormValidationStateChanged(

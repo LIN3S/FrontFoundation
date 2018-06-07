@@ -56,12 +56,12 @@
     "foes-scrollproxy": "^0.8.0",
     "jquery": "^3.2.1",
     "lin3s-event-bus": "^0.10.0",
-    "lin3s-front-foundation": "^0.18.0",
+    "lin3s-front-foundation": "^0.19.1",
     "lodash.debounce": "^4.0.8",
     "parsleyjs": "^2.7.2",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "validatory": "^0.2.3"
+    "validatory": "^0.3.0"
   }
 }

@@ -3819,9 +3819,9 @@ lin3s-event-bus@^0.10.0:
   dependencies:
     lodash.debounce "^4.0.8"
 
-lin3s-front-foundation@^0.18.0:
-  version "0.18.9"
-  resolved "https://registry.yarnpkg.com/lin3s-front-foundation/-/lin3s-front-foundation-0.18.9.tgz#f21d9352ba2fee8a8dab87a0ef56b7e3920d7163"
+lin3s-front-foundation@^0.19.0:
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/lin3s-front-foundation/-/lin3s-front-foundation-0.19.0.tgz#194e8fff21422340cc5db446fa9cac8384633402"
   dependencies:
     foes-scrollproxy "^0.8.0"
     lin3s-event-bus "^0.10.0"
@@ -7235,13 +7235,13 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "~1.0.0"
     spdx-expression-parse "~1.0.0"
 
-validatory@^0.2.3:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/validatory/-/validatory-0.2.3.tgz#432fe8278becc5194c1089b77ecc491fa8802559"
-
 validatory@^0.2.5:
   version "0.2.5"
   resolved "https://registry.yarnpkg.com/validatory/-/validatory-0.2.5.tgz#3a19d79436425b5ae99d5193854f809b967ec59f"
+
+validatory@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/validatory/-/validatory-0.3.0.tgz#2bbde6245360c04789795c6fa86de1bf9c7ac63f"
 
 vary@~1.1.2:
   version "1.1.2"

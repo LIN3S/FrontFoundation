@@ -1,6 +1,6 @@
 {
   "name": "lin3s-front-foundation",
-  "version": "0.19.0",
+  "version": "0.19.1",
   "author": "LIN3S",
   "license": "MIT",
   "description": "Library that provides a sort of commonly used front-end components in LIN3S projects",
@@ -61,11 +61,11 @@
   "peerDependencies": {
     "prop-types": ">=15.0",
     "react": ">=15.0",
-    "react-dom": ">=15.0"
+    "react-dom": ">=15.0",
+    "validatory": "^0.2.5||^0.3.0"
   },
   "dependencies": {
     "foes-scrollproxy": "^0.8.0",
-    "lin3s-event-bus": "^0.10.0",
-    "validatory": "^0.2.5"
+    "lin3s-event-bus": "^0.10.0"
   }
 }

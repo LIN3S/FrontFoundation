@@ -14,22 +14,40 @@ import PropTypes from 'prop-types';
 import {Ui} from 'lin3s-front-foundation';
 import {Patterns} from 'validatory';
 
-class ReactEmailInput extends React.PureComponent {
+class ReactEmailInput extends React.Component {
 
   static propTypes = {
     domNode: PropTypes.any.isRequired
   };
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      value: ''
+    };
+
+    this.onChanged = this.onChanged.bind(this);
+  }
+
+  onChanged(value) {
+    this.setState({value});
+  }
+
   render() {
+    const {value} = this.state;
+
     return <Ui.React.FormGroupInput
       id="react-form-group-input-email"
       label="Email:"
+      onChanged={this.onChanged}
       required={true}
       type="email"
       validationEnabled={true}
       validationMessageNotValid="The entered email is not valid"
       validationMessageRequired="This field is required"
-      validationPattern={Patterns.email}/>;
+      validationPattern={Patterns.email}
+      value={value}/>;
   }
 }
 
