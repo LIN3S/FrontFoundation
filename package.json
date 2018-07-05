@@ -1,6 +1,6 @@
 {
   "name": "lin3s-front-foundation",
-  "version": "0.19.1",
+  "version": "0.19.2",
   "author": "LIN3S",
   "license": "MIT",
   "description": "Library that provides a sort of commonly used front-end components in LIN3S projects",

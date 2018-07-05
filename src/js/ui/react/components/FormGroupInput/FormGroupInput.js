@@ -15,6 +15,7 @@ import PropTypes from 'prop-types';
 class FormGroup extends React.Component {
 
   static propTypes = {
+    autoComplete: PropTypes.string,
     enabled: PropTypes.bool,
     id: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
@@ -34,9 +35,9 @@ class FormGroup extends React.Component {
   };
 
   static defaultProps = {
+    autoComplete: 'new-password', // This will prevent the browsers to autoComplete the input.
     enabled: true,
-    onChanged: () => {
-    },
+    onChanged: () => {},
     placeholder: '',
     required: false,
     type: 'text',
@@ -90,6 +91,7 @@ class FormGroup extends React.Component {
 
   render() {
     const {
+      autoComplete,
       enabled,
       id,
       label,
@@ -116,7 +118,7 @@ class FormGroup extends React.Component {
         </label>
       </div>
       <input
-        autoComplete="off"
+        autoComplete={autoComplete}
         className="form-input"
         data-validate={validationEnabled ? true : null}
         data-validate-pattern={validationEnabled ? validationPattern : null}
