@@ -5,6 +5,8 @@ This changelog references the relevant changes done between versions.
 To get the diff for a specific change, go to https://github.com/LIN3S/FrontFoundation/commit/XXX where XXX is the change hash
 To get the diff between two versions, go to https://github.com/LIN3S/FrontFoundation/compare/v0.5.0...v0.6.0
 
+* 0.19.3
+    * The `Modal` component (Vanilla) now dispatches a `ModalInitializedEvent` after it's initialization.
 * 0.19.2
     * The `autocomplete` field's value is now passed as a prop and it has a "new-password" as it's default value.
 * 0.19.1
