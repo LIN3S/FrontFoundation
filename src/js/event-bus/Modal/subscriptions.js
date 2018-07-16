@@ -10,10 +10,22 @@
  * @author Ander Rodriguez <AnderRodriguezVarela@gmail.com>
  */
 
-import {Priority, LifeTimeEventPublisher} from 'lin3s-event-bus';
+import {Priority, OneTimeEventPublisher, LifeTimeEventPublisher} from 'lin3s-event-bus';
 import ModalStateChangedEventSubscriber from './ModalStateChangedEventSubscriber';
+import ModalInitializedEventSubscriber from './ModalInitializedEventSubscriber';
 
 const
+  onInitialized = (modalId, onModalInitializedCallback, priority) => {
+    const modalInitializedEventSubscriber = new ModalInitializedEventSubscriber(
+      modalId,
+      onModalInitializedCallback,
+      new Priority(priority)
+    );
+
+    OneTimeEventPublisher.subscribe(modalInitializedEventSubscriber);
+
+    return modalInitializedEventSubscriber;
+  },
   onStateChanged = (onModalStateChangedCallback, priority) => {
     const modalStateChangedEventSubscriber = new ModalStateChangedEventSubscriber(
       onModalStateChangedCallback,
@@ -26,5 +38,6 @@ const
   };
 
 export {
-  onStateChanged
+  onStateChanged,
+  onInitialized,
 };

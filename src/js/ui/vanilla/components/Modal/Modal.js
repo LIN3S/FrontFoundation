@@ -9,8 +9,9 @@
  * @author Mikel Tuesta <mikeltuesta@gmail.com>
  */
 
-import {LifeTimeEventPublisher} from 'lin3s-event-bus';
+import {OneTimeEventPublisher, LifeTimeEventPublisher} from 'lin3s-event-bus';
 import ModalStateChangedEvent from './../../../../event-bus/Modal/ModalStateChangedEvent';
+import ModalInitializedEvent from './../../../../event-bus/Modal/ModalInitializedEvent';
 
 class Modal {
 
@@ -37,6 +38,7 @@ class Modal {
     this.onKeyDown = this.onKeyDown.bind(this);
 
     this.bindListeners();
+    this.publishModalInitializedEvent();
   }
 
   bindListeners() {
@@ -82,6 +84,14 @@ class Modal {
       close: this.close,
       domNode: this.domNode,
       state: this.state
+    }));
+  }
+
+  publishModalInitializedEvent() {
+    OneTimeEventPublisher.publish(new ModalInitializedEvent({
+      open: this.open.bind(this),
+      close: this.close.bind(this),
+      domNode: this.domNode,
     }));
   }
 }

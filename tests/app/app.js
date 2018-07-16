@@ -216,6 +216,14 @@ const scrollToWithMenuLinks = () => {
   });
 };
 
+const testModalInitializedEvent = () => {
+  console.log('Testing EventBus.Modal.onInitialized');
+
+  EventBus.Modal.onInitialized('modal-test', modalInitializedEvent => {
+    console.log('modal has been initialized!', modalInitializedEvent.domNode);
+  });
+};
+
 const onReady = () => {
   testAsyncCancelablePromise();
   testBrowserIsIE11();
@@ -225,6 +233,7 @@ const onReady = () => {
   testValidatory();
   testCookies();
   scrollToWithMenuLinks();
+  testModalInitializedEvent();
 };
 
 addAsyncValidator();
