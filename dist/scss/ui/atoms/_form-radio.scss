@@ -1,0 +1,88 @@
+// This file is part of the Front Foundation package.
+//
+// Copyright (c) 2017-present LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Mikel Tuesta <mikeltuesta@gmail.com>
+
+@import './../../_variables/transitions';
+
+$form-radio-background-color: #0e8fff !default;
+$form-radio-border-color: #d1d1d1 !default;
+$form-radio-border-color-focus: #0e8fff !default;
+$form-radio-text-color: #444 !default;
+$form-radio-font-family: sans-serif !default;
+$form-radio-font-size: 16px !default;
+$form-radio-font-weight: normal !default;
+$form-radio-line-height: 20px !default;
+$form-radio-border-transition: $transition-border-color;
+$form-radio-circle-transition: $transition-transform;
+
+.form-radio {
+  color: $form-radio-text-color;
+  font-family: $form-radio-font-family;
+  font-size: $form-radio-font-size;
+  font-weight: $form-radio-font-weight;
+  line-height: $form-radio-line-height;
+  position: relative;
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+
+  &:focus {
+    .form-radio__content::before {
+      border-color: $form-radio-border-color-focus;
+    }
+  }
+}
+
+.form-radio__content {
+  display: block;
+  padding-left: 30px;
+  padding-top: 2px;
+  position: relative;
+
+  &::before,
+  &::after {
+    border-radius: 100%;
+    box-sizing: border-box;
+    content: '';
+    position: absolute;
+  }
+
+  &::before {
+    background-color: white;
+    border: 1px solid $form-radio-border-color;
+    height: 14px;
+    left: 0;
+    padding: 8px;
+    top: 3px;
+    transition: $form-radio-border-transition;
+    width: 14px;
+    z-index: 1;
+  }
+
+  &::after {
+    background-color: $form-radio-background-color;
+    height: 8px;
+    left: 5px;
+    padding: 4px;
+    top: 8px;
+    transform: scale(0);
+    transition: $form-radio-circle-transition;
+    width: 8px;
+    z-index: 2;
+  }
+}
+
+.form-radio__circle {
+  display: none;
+
+  &:checked + .form-radio__content::after {
+    transform: scale(1);
+  }
+}

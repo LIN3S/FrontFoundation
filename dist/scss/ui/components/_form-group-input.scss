@@ -1,0 +1,38 @@
+// This file is part of the Front Foundation package.
+//
+// Copyright (c) 2017-present LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Mikel Tuesta <mikeltuesta@gmail.com>
+
+@import './../../_placeholders/form-group';
+@import './../../_mixins/form-validation';
+
+$form-group-input-background-color-disabled: #eee !default;
+
+.form-group-input {
+  position: relative;
+}
+
+.form-group-input--disabled {
+  .form-input {
+    background-color: $form-group-input-background-color-disabled;
+    cursor: not-allowed;
+  }
+}
+
+.form-group-input__label {
+  @extend %form-group__label;
+}
+
+.form-group-input__spinner {
+  .form-spinner {
+    position: absolute;
+    right: 15px;
+    top: -30px;
+  }
+}
+
+@include form_group_validation('.form-group-input__errors', '.form-group-input__spinner');

@@ -1,0 +1,59 @@
+// This file is part of the Front Foundation package.
+//
+// Copyright (c) 2017-present LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Beñat Espiña <benatespina@gmail.com>
+// @author Mikel Tuesta <mikeltuesta@gmail.com>
+
+$icon-color-primary: #f00 !default;
+$icon-color-secondary: #000 !default;
+$icon-stroke-miterlimit: 10 !default;
+$icon-stroke-width: 2 !default;
+$icon-vector-effect: non-scaling-stroke !default;
+
+.icon {
+  fill: none;
+  stroke-miterlimit: $icon-stroke-miterlimit;
+  stroke-width: $icon-stroke-width;
+}
+
+.icon--rounded {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon--stroke-scale {
+  .icon__glyph {
+    vector-effect: none;
+  }
+}
+
+.icon__glyph {
+  vector-effect: $icon-vector-effect;
+}
+
+// scss-lint:disable ImportantRule
+.icon__glyph--primary {
+  fill: none !important;
+  stroke: $icon-color-primary;
+}
+
+.icon__glyph--secondary {
+  fill: none !important;
+  stroke: $icon-color-secondary;
+}
+
+.icon__glyph--primary-filled {
+  fill: $icon-color-primary;
+  stroke: none !important;
+}
+
+.icon__glyph--secondary-filled {
+  fill: $icon-color-secondary;
+  stroke: none !important;
+}
+
+// scss-lint:enable ImportantRule

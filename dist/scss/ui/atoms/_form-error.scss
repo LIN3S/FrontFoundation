@@ -1,0 +1,41 @@
+// This file is part of the Front Foundation package.
+//
+// Copyright (c) 2017-present LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Mikel Tuesta <mikeltuesta@gmail.com>
+
+@import './../../_definitions/animations';
+
+$form-error-background-color: #f2b8c2 !default;
+$form-error-text-color: #b20008 !default;
+$form-error-border-color: rgba($form-error-text-color, .5) !default;
+$form-error-animation: $animation-vertical-node-in;
+$form-error-font-family: sans-serif !default;
+$form-error-font-size: 14px !default;
+$form-error-font-weight: normal !default;
+$form-error-line-height: 18px !default;
+
+.form-error {
+  background-color: $form-error-background-color;
+  border: 1px solid $form-error-border-color;
+  color: $form-error-text-color;
+  display: none;
+  font-family: $form-error-font-family;
+  font-size: $form-error-font-size;
+  font-weight: $form-error-font-weight;
+  left: 0;
+  line-height: $form-error-line-height;
+  margin-bottom: 0;
+  margin-top: -1px;
+  padding: 13px 10px 10px;
+  position: relative;
+  width: 100%;
+}
+
+.form-error--visible {
+  animation: $form-error-animation;
+  display: block;
+}

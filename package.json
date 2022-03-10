@@ -20,8 +20,8 @@
     "README.md"
   ],
   "scripts": {
-    "phoenix": "rimraf node_modules && yarn install",
-    "prebuild": "rimraf dist",
+    "phoenix": "rm -rf node_modules && yarn install",
+    "prebuild": "rm -rf dist",
     "eslint": "node_modules/.bin/eslint src/js/**/*.js",
     "stylelint": "node_modules/.bin/stylelint src/scss/**/*.scss",
     "cs": "yarn eslint && yarn stylelint",

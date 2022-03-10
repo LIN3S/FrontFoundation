@@ -1,0 +1,28 @@
+// This file is part of the Front Foundation package.
+//
+// Copyright (c) 2017-present LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Mikel Tuesta <mikeltuesta@gmail.com>
+
+@import './../../_definitions/animations';
+
+$loader-background-color: #0e8fff !default;
+$loader-side: 30px !default;
+$loader-side-big: 60px !default;
+$loader-animation: $animation-infinite-scale-out !default;
+
+.loader {
+  animation: $loader-animation;
+  background-color: $loader-background-color;
+  border-radius: 100%;
+  height: $loader-side;
+  width: $loader-side;
+}
+
+.loader--big {
+  height: $loader-side-big;
+  width: $loader-side-big;
+}

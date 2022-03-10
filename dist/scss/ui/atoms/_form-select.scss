@@ -1,0 +1,235 @@
+// This file is part of the Front Foundation package.
+//
+// Copyright (c) 2017-present LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Mikel Tuesta <mikeltuesta@gmail.com>
+
+@import './../../_variables/transitions';
+
+$form-select-main-color: #0e8fff;
+$form-select-background-color: #fff !default;
+$form-select-background-color-disabled: #eee !default;
+$form-select-border-color: #d1d1d1 !default;
+$form-select-border-color-focused: $form-select-main-color !default;
+$form-select-border-color-error: #b20008 !default;
+$form-select-border-color-valid: #00d44c !default;
+$form-select-font-family: sans-serif !default;
+$form-select-font-size: 16px !default;
+$form-select-font-weight: normal !default;
+$form-select-line-height: 20px !default;
+$form-select-loader-side: 20px !default;
+$form-select-dropdown-icon-side: 20px !default;
+$form-select-dropdown-icon-transition: $transition-transform !default;
+$form-select-label-transition: $transition-color, $transition-background-color !default;
+$form-select-label-text-color: #222 !default;
+$form-select-label-text-color-opened: rgba($form-select-label-text-color, .5) !default;
+$form-select-options-transition: $transition-height, $transition-transform, $transition-background-color !default;
+$form-select-options-box-shadow: 0 5px 30px -10px rgba(#222, .25) !default;
+$form-select-option-transition: $transition-background-color !default;
+$form-select-option-text-color: #222 !default;
+$form-select-option-text-color-active: #fff !default;
+$form-select-option-background-color-active: $form-select-main-color !default;
+$form-select-option-background-color-hover: #eee !default;
+$form-select-option-background-color-hover-and-active: rgba($form-select-option-background-color-active, .8) !default;
+$form-select-input-transition: $transition-opacity !default;
+$form-select-options-z-index: 2 !default;
+$form-select-label-z-index: 3 !default;
+$form-select-input-z-index: 4 !default;
+$form-select-loader-z-index: 5 !default;
+$form-select-dropdown-icon-z-index: $form-select-input-z-index !default;
+
+.form-select {
+  position: relative;
+  z-index: 0;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &[data-validation-state="not-filled"],
+  &[data-validation-state="not-valid"] {
+    .form-select__label {
+      border-color: $form-select-border-color-error;
+    }
+  }
+
+  &[data-validation-state="valid"] {
+    .form-select__label {
+      border-color: $form-select-border-color-valid;
+    }
+  }
+}
+
+.form-select--opened {
+  .form-select__dropdown-icon {
+    transform: rotate(180deg);
+  }
+
+  .form-select__label {
+    color: $form-select-label-text-color-opened;
+  }
+
+  .form-select__options-container {
+    box-shadow: $form-select-options-box-shadow;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+}
+
+.form-select--loading {
+  .form-select__dropdown-icon {
+    display: none;
+  }
+
+  .form-select__loader {
+    display: block;
+  }
+}
+
+.form-select--disabled {
+  .form-select__label,
+  .form-select__options-container {
+    background-color: $form-select-background-color-disabled;
+  }
+
+  .form-select__label,
+  .form-select__option {
+    cursor: not-allowed;
+  }
+}
+
+.form-select--editing-input {
+  .form-select__input-container {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.form-select--focused {
+  .form-select__label {
+    border-color: $form-select-border-color-focused;
+  }
+}
+
+.form-select__loader {
+  display: none;
+  height: $form-select-loader-side;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  width: $form-select-loader-side;
+  z-index: $form-select-loader-z-index;
+}
+
+.form-select__select {
+  display: none;
+}
+
+.form-select__dropdown-icon {
+  display: block;
+  height: $form-select-dropdown-icon-side;
+  pointer-events: none;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  transition: $form-select-dropdown-icon-transition;
+  width: $form-select-dropdown-icon-side;
+  z-index: $form-select-dropdown-icon-z-index;
+}
+
+.form-select__label,
+.form-select__option,
+.form-select__input {
+  cursor: pointer;
+  font-family: $form-select-font-family;
+  font-size: $form-select-font-size;
+  font-weight: $form-select-font-weight;
+  line-height: $form-select-line-height;
+  padding: 10px 15px;
+}
+
+.form-select__input-container {
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  transition: $form-select-input-transition;
+  width: 100%;
+  z-index: $form-select-input-z-index;
+}
+
+.form-select__input {
+  padding-right: 45px;
+}
+
+.form-select__label {
+  background-color: $form-select-background-color;
+  border: 1px solid $form-select-border-color;
+  position: relative;
+  transition: $form-select-label-transition;
+  z-index: $form-select-label-z-index;
+}
+
+.form-select__options-container {
+  background-color: $form-select-background-color;
+  border-bottom: 1px solid $form-select-border-color;
+  border-left: 1px solid $form-select-border-color;
+  border-right: 1px solid $form-select-border-color;
+  height: 0;
+  left: 0;
+  margin-top: -1px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  pointer-events: none;
+  position: absolute;
+  transform: translateY(-30px);
+  transition: $form-select-options-transition;
+  width: 100%;
+  z-index: $form-select-options-z-index;
+}
+
+.form-select__options-container--no-overflow {
+  overflow-y: hidden;
+}
+
+.form-select__options {
+  height: auto;
+  width: 100%;
+}
+
+.form-select__option {
+  color: $form-select-option-text-color;
+  position: relative;
+  transition: $form-select-option-transition;
+  z-index: 0;
+
+  &::after {
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+}
+
+.form-select__option--hover {
+  &.form-select__option--active {
+    background-color: $form-select-option-background-color-hover-and-active;
+  }
+
+  &:not(.form-select__option--active) {
+    background-color: $form-select-option-background-color-hover;
+  }
+}
+
+.form-select__option--active {
+  background-color: $form-select-option-background-color-active;
+  color: $form-select-option-text-color-active;
+}

@@ -1,0 +1,29 @@
+// This file is part of the Front Foundation package.
+//
+// Copyright (c) 2017-present LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Mikel Tuesta <mikeltuesta@gmail.com>
+
+@import './../../_placeholders/form-group';
+@import './../../_mixins/form-validation';
+
+.form-group-textarea {
+  position: relative;
+}
+
+.form-group-textarea__label {
+  @extend %form-group__label;
+}
+
+.form-group-textarea__spinner {
+  .form-spinner {
+    position: absolute;
+    right: 15px;
+    top: -30px;
+  }
+}
+
+@include form_group_validation('.form-group-textarea__errors', '.form-group-textarea__spinner');

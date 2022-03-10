@@ -1,0 +1,96 @@
+// This file is part of the Front Foundation package.
+//
+// Copyright (c) 2017-present LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Mikel Tuesta <mikeltuesta@gmail.com>
+
+@import './../../_definitions/animations';
+@import './../../_variables/transitions';
+@import './../atoms/loader';
+@import './../svg/triangle';
+
+$gmap-marker-detail-background-color: #fff !default;
+$gmap-marker-detail-animation: $animation-vertical-node-in !default;
+$gmap-marker-detail-transition: $transition-opacity, $transition-transform !default;
+$gmap-marker-detail-box-shadow-color: #222 !default;
+$gmap-marker-detail-box-shadow: 0 5px 30px -10px rgba($gmap-marker-detail-box-shadow-color, .25) !default;
+$gmap-marker-detail-close-button-side: 40px !default;
+$gmap-marker-detail-close-button-icon-stroke-color: #222 !default;
+$gmap-marker-detail-triangle-fill-color: $gmap-marker-detail-background-color;
+$gmap-marker-detail-triangle-width: 30px !default;
+$gmap-marker-detail-triangle-height: 30px !default;
+
+.gmap-marker-detail {
+  background-color: $gmap-marker-detail-background-color;
+  box-shadow: $gmap-marker-detail-box-shadow;
+  opacity: 0;
+  padding: 20px;
+  pointer-events: none;
+  position: relative;
+  transform: translateY(-30px);
+  transition: $gmap-marker-detail-transition;
+
+  .triangle {
+    bottom: -20px;
+    fill: $gmap-marker-detail-triangle-fill-color;
+    height: $gmap-marker-detail-triangle-height;
+    left: calc(50% - #{$gmap-marker-detail-triangle-width / 2});
+    position: absolute;
+    width: $gmap-marker-detail-triangle-width;
+  }
+}
+
+.gmap-marker-detail--loading {
+  .gmap-marker-detail__loader {
+    animation: $gmap-marker-detail-animation;
+    display: flex;
+  }
+
+  .gmap-marker-detail__content {
+    display: none;
+  }
+}
+
+.gmap-marker-detail--visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.gmap-marker-detail__close {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  height: $gmap-marker-detail-close-button-side;
+  outline: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: $gmap-marker-detail-close-button-side;
+
+  .icon__glyph {
+    stroke: $gmap-marker-detail-close-button-icon-stroke-color;
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+
+.gmap-marker-detail__loader {
+  align-items: center;
+  display: none;
+  justify-content: center;
+  min-height: 120px;
+  width: 100%;
+}
+
+.gmap-marker-detail__content {
+  animation: $gmap-marker-detail-animation;
+  display: block;
+  padding-right: 20px;
+}

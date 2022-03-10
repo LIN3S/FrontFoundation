@@ -1,0 +1,153 @@
+// This file is part of the Front Foundation package.
+//
+// Copyright (c) 2017-present LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Mikel Tuesta <mikeltuesta@gmail.com>
+
+$modal-close-pointer-icon: '/images/close-cursor.png';
+$modal-z-index: 30 !default;
+$modal-overlay-background-color: rgba(#444, .6) !default;
+$modal-content-background-color: #fff !default;
+$modal-content-shadow-color: rgba(#000, .5) !default;
+$modal-close-button-icon-side: 30px;
+$modal-close-button-text-color: #fff !default;
+$modal-close-button-font-family: sans-serif !default;
+$modal-close-button-font-size: 18px !default;
+$modal-close-button-font-weight: normal !default;
+$modal-close-button-line-height: 24px !default;
+$modal-close-button-stroke-color: #fff !default;
+$modal-transition-duration: .3s !default;
+$modal-overlay-transition-out: opacity $modal-transition-duration ease-in-out $modal-transition-duration !default;
+$modal-overlay-transition-in: opacity $modal-transition-duration ease-in-out !default;
+$modal-content-transition-out: opacity $modal-transition-duration ease-in-out, transform $modal-transition-duration ease-in-out !default;
+$modal-content-transition-in: opacity $modal-transition-duration ease-in-out $modal-transition-duration, transform $modal-transition-duration ease-in-out $modal-transition-duration !default;
+$modal-close-button-transition-out: opacity $modal-transition-duration ease-in-out !default;
+$modal-close-button-transition-in: opacity $modal-transition-duration ease-in-out $modal-transition-duration !default;
+$modal-transition-out: visibility $modal-transition-duration ease-in-out $modal-transition-duration !default;
+$modal-transition-in: visibility $modal-transition-duration ease-in-out !default;
+
+.modal {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  transition: $modal-transition-out;
+  visibility: hidden;
+  width: 100%;
+  z-index: $modal-z-index;
+}
+
+.modal--opened {
+  pointer-events: auto;
+  transition: $modal-transition-in;
+  visibility: visible;
+
+  .modal__overlay {
+    opacity: 1;
+    transition: $modal-overlay-transition-in;
+  }
+
+  .modal__content {
+    opacity: 1;
+    transform: scale(1);
+    transition: $modal-content-transition-in;
+  }
+
+  .modal__close-button {
+    opacity: 1;
+    transition: $modal-close-button-transition-in;
+  }
+}
+
+.modal--wider {
+  .modal__contents {
+    max-width: 1260px;
+  }
+}
+
+.modal__overlay {
+  background-color: $modal-overlay-background-color;
+  bottom: 0;
+  cursor: url($modal-close-pointer-icon), pointer;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  overflow-y: auto;
+  position: absolute;
+  transition: $modal-overlay-transition-out;
+  width: 100%;
+  z-index: 0;
+}
+
+.modal__contents {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 90px auto 0;
+  max-width: 800px;
+  padding: 30px;
+}
+
+.modal__content-layer {
+  align-items: flex-end;
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.modal__content {
+  background-color: $modal-content-background-color;
+  box-shadow: 0 5px 45px -10px $modal-content-shadow-color;
+  cursor: default;
+  max-height: 100%;
+  max-width: 100%;
+  opacity: 0;
+  padding: 30px;
+  transform: scale(1.1);
+  transition: $modal-content-transition-out;
+  width: 100%;
+}
+
+.modal__close-button {
+  color: $modal-close-button-text-color;
+  display: flex;
+  font-family: $modal-close-button-font-family;
+  font-size: $modal-close-button-font-size;
+  font-weight: $modal-close-button-font-weight;
+  line-height: $modal-close-button-line-height;
+  opacity: 0;
+  padding: 10px 15px;
+  position: relative;
+  transition: $modal-close-button-transition-out;
+  z-index: 1;
+
+  .icon {
+    height: $modal-close-button-icon-side;
+    margin-left: 10px;
+    width: $modal-close-button-icon-side;
+  }
+
+  .icon__glyph {
+    stroke: $modal-close-button-stroke-color;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .modal__content {
+    padding: 45px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .modal__contents {
+    margin-top: 120px;
+  }
+
+  .modal__content {
+    padding: 60px;
+  }
+}

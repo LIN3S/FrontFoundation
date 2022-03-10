@@ -1,0 +1,30 @@
+// This file is part of the Front Foundation package.
+//
+// Copyright (c) 2017-present LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Mikel Tuesta <mikeltuesta@gmail.com>
+
+$gmap-marker-detail-z-index: 10 !default;
+$gmap-min-height: 400px !default;
+
+.gmap {
+  display: flex;
+  height: 100%;
+  justify-content: stretch;
+  min-height: $gmap-min-height;
+  position: relative;
+
+  .gmap-marker-detail {
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: $gmap-marker-detail-z-index;
+  }
+}
+
+.gmap__map {
+  flex: 1;
+}

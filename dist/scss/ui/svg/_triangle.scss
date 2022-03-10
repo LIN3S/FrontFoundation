@@ -1,0 +1,29 @@
+// This file is part of the Front Foundation package.
+//
+// Copyright (c) 2017-present LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Mikel Tuesta <mikeltuesta@gmail.com>
+
+.triangle {
+  height: 10px;
+  width: 20px;
+}
+
+.triangle--left {
+  transform: rotate(-90deg);
+}
+
+.triangle--right {
+  transform: rotate(90deg);
+}
+
+.triangle--top {
+  transform: rotate(0);
+}
+
+.triangle--bottom {
+  transform: rotate(180deg);
+}
