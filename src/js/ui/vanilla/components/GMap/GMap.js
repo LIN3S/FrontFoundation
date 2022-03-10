@@ -291,13 +291,13 @@ class GMap {
     this.map.panToBounds(bounds);
   }
 
-  getOffsetedLatLng({lat, lng}, {offsetX = this.centerOffsetX, offsetY = this.centerOffsetY} = {}) {
+  getOffsetedLatLng(latlng, {offsetX = this.centerOffsetX, offsetY = this.centerOffsetY} = {}) {
     const
       scale = Math.pow(2, this.map.getZoom()),
       pixelOffset = new google.maps.Point(offsetX / scale || 0, offsetY / scale || 0);
 
     const
-      worldCoordinateCenter = this.map.getProjection().fromLatLngToPoint({lat, lng}),
+      worldCoordinateCenter = this.map.getProjection().fromLatLngToPoint(latlng),
       worldCoordinateNewCenter = new google.maps.Point(
         worldCoordinateCenter.x + pixelOffset.x,
         worldCoordinateCenter.y + pixelOffset.y,
@@ -323,7 +323,7 @@ class GMap {
     );
   }
 
-  getPixelPositionFromLatLng({lat, lng}) {
+  getPixelPositionFromLatLng(latlng) {
     const
       scale = Math.pow(2, this.map.getZoom()),
       nw = new google.maps.LatLng(
@@ -331,7 +331,7 @@ class GMap {
         this.map.getBounds().getSouthWest().lng(),
       ),
       worldCoordinateNW = this.map.getProjection().fromLatLngToPoint(nw),
-      worldCoordinate = this.map.getProjection().fromLatLngToPoint({lat, lng});
+      worldCoordinate = this.map.getProjection().fromLatLngToPoint(latlng);
 
     return new google.maps.Point(
       Math.floor((worldCoordinate.x - worldCoordinateNW.x) * scale),
