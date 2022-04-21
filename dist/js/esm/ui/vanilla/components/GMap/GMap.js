@@ -27,8 +27,8 @@ class GMap {
   center;
   centerOffsetX;
   centerOffsetY;
-  boundsOffsetX;
-  boundsOffsetY;
+  boundsOffsetX = 0;
+  boundsOffsetY = 0;
   zoom;
   markerIcons;
   markers = [];
@@ -313,12 +313,12 @@ class GMap {
 
     return new google.maps.LatLngBounds(
       this.getOffsetedLatLng(
-        {lat: southWest.lat, lng: southWest.lng},
+        southWest,
         {offsetX: this.boundsOffsetX, offsetY: this.boundsOffsetY},
       ),
       this.getOffsetedLatLng(
-        {lat: northEast.lat, lng: northEast.lng},
-        {offsetX: this.boundsOffsetX, offsetY: this.boundsOffsetY,},
+        northEast,
+        {offsetX: this.boundsOffsetX, offsetY: this.boundsOffsetY},
       ),
     );
   }

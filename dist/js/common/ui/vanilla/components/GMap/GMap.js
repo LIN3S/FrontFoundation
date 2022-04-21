@@ -61,6 +61,8 @@ var GMap = function () {
     _classCallCheck(this, GMap);
 
     this.mapMarkers = [];
+    this.boundsOffsetX = 0;
+    this.boundsOffsetY = 0;
     this.markers = [];
 
     this.domNode = domNode;
@@ -360,7 +362,7 @@ var GMap = function () {
       var southWest = bounds.getSouthWest(),
           northEast = bounds.getNorthEast();
 
-      return new google.maps.LatLngBounds(this.getOffsetedLatLng({ lat: southWest.lat, lng: southWest.lng }, { offsetX: this.boundsOffsetX, offsetY: this.boundsOffsetY }), this.getOffsetedLatLng({ lat: northEast.lat, lng: northEast.lng }, { offsetX: this.boundsOffsetX, offsetY: this.boundsOffsetY }));
+      return new google.maps.LatLngBounds(this.getOffsetedLatLng(southWest, { offsetX: this.boundsOffsetX, offsetY: this.boundsOffsetY }), this.getOffsetedLatLng(northEast, { offsetX: this.boundsOffsetX, offsetY: this.boundsOffsetY }));
     }
   }, {
     key: 'getPixelPositionFromLatLng',
