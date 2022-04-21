@@ -27,8 +27,8 @@ class GMap {
   center;
   centerOffsetX;
   centerOffsetY;
-  boundsOffsetX;
-  boundsOffsetY;
+  boundsOffsetX = 0;
+  boundsOffsetY = 0;
   zoom;
   markerIcons;
   markers = [];
@@ -318,7 +318,7 @@ class GMap {
       ),
       this.getOffsetedLatLng(
         northEast,
-        {offsetX: this.boundsOffsetX, offsetY: this.boundsOffsetY, },
+        {offsetX: this.boundsOffsetX, offsetY: this.boundsOffsetY},
       ),
     );
   }
