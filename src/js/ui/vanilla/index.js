@@ -11,15 +11,15 @@
  */
 
 import AsideSticky from './layouts/AsideSticky/AsideSticky';
-import GMap from './components/GMap/GMap';
-import GMapMarkerDetail from './components/GMapMarkerDetail/GMapMarkerDetail';
+// import GMap from './components/GMap/GMap';
+// import GMapMarkerDetail from './components/GMapMarkerDetail/GMapMarkerDetail';
 import Modal from './components/Modal/Modal';
 import FormSelect from './atoms/FormSelect/FormSelect';
 
 // Ui Components initialization
 import './layouts/AsideSticky/init';
 import './components/FormGroupRadio/init';
-import './components/GMap/init';
+// import './components/GMap/init';
 import './components/Modal/init';
 import './atoms/FormSelect/init';
 import './atoms/FormInput/init';
@@ -28,8 +28,8 @@ import './atoms/FormTextarea/init';
 import './atoms/FormCheckbox/init';
 
 export {
-  GMap,
-  GMapMarkerDetail,
+  // GMap,
+  // GMapMarkerDetail,
   FormSelect,
   AsideSticky,
   Modal
